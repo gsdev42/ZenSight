@@ -30,13 +30,36 @@
 ---
 
 ## 🎯 **Key Features**  
-| **Feature**               | **Tech Used**          | **Impact** |  
-|---------------------------|------------------------|------------|  
-| Emotion Detection         | BERT Fine-Tuning       | 92% accuracy |  
-| Crisis Keyword Filter     | Regex + Custom NLP     | Instant alert system |  
-| Conversation Memory       | Redis Vector Store     | Context-aware responses |  
 
----
+| **Feature**               | **Tech Stack**          | **Impact** |  
+|---------------------------|-------------------------|------------|  
+| **Contextual Responses**  | Groq LLM + Pinecone     | Low-latency, high-relevance answers |  
+| **Medical Q&A**           | RAG Pipeline            | Citations from uploaded PDFs |  
+| **Conversation Memory**   | Pinecone Vector Store   | Personalized follow-ups |  
+| **Real-Time Processing**  | Groq LPU Inference      | 200+ tokens/sec response speed |  
+
+### **Architecture Highlights**  
+### **Architecture Diagram**
+```mermaid
+graph TD
+    A[User Query] --> B{Query Understanding}
+    B --> C[Pinecone VectorDB]
+    C -->|Retrieve Relevant Chunks| D[Groq LLM]
+    D --> E[Generate Augmented Response]
+    E --> F[User]
+
+    subgraph RAG Pipeline
+        B
+        C
+        D
+    end
+
+    style A fill:#FFD166,stroke:#333
+    style F fill:#FFD166,stroke:#333
+    style C fill:#06D6A0,stroke:#333
+    style D fill:#118AB2,stroke:#333
+
+```
 
 ## 🌱 **Core Philosophies**  
 1. **Privacy First** – All chats are encrypted  
