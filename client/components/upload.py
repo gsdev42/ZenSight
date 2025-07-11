@@ -2,7 +2,7 @@ import streamlit as st
 from utils.api import upload_pdfs_api
 
 def render_uploader():
-    st.sidebar.header("📁 Upload Medical Documents (.PDFs)")
+    st.sidebar.header("📁 Upload Documents (.PDFs)")
     with st.sidebar.container():
         st.markdown(
             """
@@ -26,7 +26,7 @@ def render_uploader():
             "Upload multiple PDFs",
             type="pdf",
             accept_multiple_files=True,
-            help="Select medical documents in PDF format"
+            help="Select documents in PDF format"
         )
         
         if st.button("📤 Upload to Database", key="upload_btn") and uploaded_files:

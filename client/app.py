@@ -1,83 +1,12 @@
-# import streamlit as st
-# from components.upload import render_uploader
-# from components.history_download import render_history_download
-# from components.chatUI import render_chat
 
-
-# st.set_page_config(page_title="AI Medical Assistant",layout="wide")
-# # Add this right after st.set_page_config() in app.py
-# st.markdown(
-#     """
-#     <style>
-#     /* Set blue gradient background */
-#     body, .stApp {
-#         background: linear-gradient(135deg, #1e5799 0%, #207cca 51%, #2989d8 100%);
-#         background-attachment: fixed;
-#     }
-    
-#     /* Set Papyrus font for heading */
-#     h1 {
-#         font-family: 'Papyrus', fantasy;
-#         color: white;
-#         text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
-#         text-align: center;
-#     }
-    
-#     /* Set Palatino font for all other text */
-#     body, .stMarkdown, .stTextInput, .stChatMessage, .stButton, .stFileUploader {
-#         font-family: 'Palatino', 'Palatino Linotype', 'Book Antiqua', serif;
-#     }
-    
-#     /* Style chat containers */
-#     .stChatMessage {
-#         border-radius: 15px;
-#         padding: 12px 18px;
-#         margin: 8px 0;
-#         box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-#     }
-    
-#     /* User message bubble */
-#     [data-testid="stChatMessage"]:has(small:contains("user")) {
-#         background: linear-gradient(135deg, #e6f0ff 0%, #c2d9ff 100%);
-#         border-left: 4px solid #1e5799;
-#     }
-    
-#     /* Assistant message bubble */
-#     [data-testid="stChatMessage"]:has(small:contains("assistant")) {
-#         background: linear-gradient(135deg, #d9edff 0%, #a8d1ff 100%);
-#         border-left: 4px solid #207cca;
-#     }
-    
-#     /* Style input area */
-#     .stChatInput .stTextInput {
-#         background: rgba(255,255,255,0.9);
-#         border-radius: 25px;
-#         padding: 12px 20px;
-#     }
-    
-#     /* Adjust spacing */
-#     .block-container {
-#         padding-top: 3rem;
-#     }
-#     </style>
-#     """,
-#     unsafe_allow_html=True
-# )
-# st.title(" 🩺 Medical Assistant Chatbot")
-
-
-# render_uploader()
-# render_chat()
-# render_history_download()
-# app.py (updated front page)
 import streamlit as st
 from components.upload import render_uploader
 from components.history_download import render_history_download
 from components.chatUI import render_chat
 
-st.set_page_config(page_title="MindEase: Mental Health Support", layout="wide")
+st.set_page_config(page_title="ZenSight: Mental Health Support", layout="wide")
 
-# Apply enhanced styling with calming blue theme
+
 st.markdown(
     """
     <style>
@@ -159,11 +88,11 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-# Hero section with viral hooks
+
 st.markdown(
     """
     <div class="hero">
-        <h1>🧠 MindEase</h1>
+        <h1>🧠 ZenSight</h1>
         <h2 style="font-size: 2rem; margin-bottom: 1.5rem;">
             The only chat that lowers your stress instead of raising it ⬇️😌
         </h2>
@@ -175,7 +104,6 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-# Value proposition columns
 col1, col2, col3 = st.columns(3)
 
 with col1:
@@ -211,15 +139,11 @@ with col3:
         unsafe_allow_html=True
     )
 
-# Primary CTA
+
 if st.button("Begin Healing Conversation Now ➡️", key="main_cta"):
     st.session_state.show_chat = True
 
-# # Later in the page...
-# if st.button("Begin Healing Conversation Now 💬", key="cta2"):
-#     st.session_state.show_chat = True
 
-# Only show chat interface after CTA click
 if st.session_state.get("show_chat"):
     render_uploader()
     render_chat()
